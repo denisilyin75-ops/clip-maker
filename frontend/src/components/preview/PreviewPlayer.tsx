@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import { Play, Pause } from "lucide-react";
 import { useProjectStore } from "@/stores/projectStore";
 import { formatTime } from "@/lib/timeUtils";
 
@@ -29,12 +30,10 @@ export default function PreviewPlayer() {
   }, [isPlaying]);
 
   // Seek audio when currentTime changes from external source (timeline click)
-  const lastExternalSeek = useRef(0);
   const seekAudio = useCallback((time: number) => {
     const el = audioRef.current;
     if (!el) return;
     el.currentTime = time;
-    lastExternalSeek.current = time;
   }, []);
 
   // Expose seekAudio globally for timeline to call
@@ -76,10 +75,14 @@ export default function PreviewPlayer() {
 
   return (
     <div className="flex-1 flex flex-col bg-bg-app overflow-hidden">
-      {/* Video area */}
+      {/* Video area — 16:9 black preview */}
       <div className="flex-1 flex items-center justify-center bg-black">
-        <div className="text-text-tertiary text-sm">
-          No video — import scenes to preview
+        <div className="w-full max-w-full" style={{ aspectRatio: "16/9", maxHeight: "100%" }}>
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-text-tertiary text-sm">
+              {audio ? "No video — import scenes to preview" : "Import audio to preview"}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -95,13 +98,13 @@ export default function PreviewPlayer() {
             if (!audio) return;
             togglePlayback();
           }}
-          className={`text-sm transition-colors ${
+          className={`transition-colors ${
             audio
               ? "text-text-secondary hover:text-text-primary cursor-pointer"
               : "text-text-tertiary cursor-not-allowed"
           }`}
         >
-          {isPlaying ? "⏸" : "▶"}
+          {isPlaying ? <Pause size={16} /> : <Play size={16} />}
         </button>
         <span className="text-[11px] font-mono text-text-secondary">
           {formatTime(currentTime)} / {formatTime(duration)}

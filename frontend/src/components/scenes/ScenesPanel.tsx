@@ -1,5 +1,7 @@
 "use client";
 
+import { Film } from "lucide-react";
+
 export default function ScenesPanel() {
   return (
     <div className="w-[260px] shrink-0 bg-bg-panel border-l border-border flex flex-col overflow-hidden">
@@ -9,9 +11,13 @@ export default function ScenesPanel() {
         </h2>
         <span className="text-[11px] text-text-tertiary">0 scenes</span>
       </div>
-      <div className="flex-1 overflow-y-auto p-2">
-        <div className="flex items-center justify-center h-32 text-text-tertiary text-xs">
-          Import video files to add scenes
+      <div className="flex-1 overflow-y-auto p-3">
+        <div className="flex flex-col items-center justify-center h-full text-center gap-3">
+          <Film size={32} className="text-text-tertiary" />
+          <div>
+            <p className="text-xs text-text-tertiary">No scenes yet.</p>
+            <p className="text-xs text-text-tertiary mt-1">Import video clips.</p>
+          </div>
         </div>
       </div>
       <div className="p-2 border-t border-border">
