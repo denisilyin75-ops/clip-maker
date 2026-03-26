@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Background */
+  --bg-app: #0a0a0f;
+  --bg-panel: #12121a;
+  --bg-card: #1a1a28;
+
+  /* Borders */
+  --border: #2a2a3a;
+  --border-hover: #3a3a4a;
+
+  /* Text */
+  --text-primary: #e4e4e8;
+  --text-secondary: #8888a0;
+  --text-tertiary: #55556a;
+
+  /* Accent */
+  --accent: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --accent-muted: #8b5cf620;
+
+  /* Playhead */
+  --playhead: #e45050;
+
+  /* Source colors */
+  --source-hedra-bg: #1e3a5f;
+  --source-hedra-border: #3b82f6;
+  --source-hedra-text: #93c5fd;
+
+  --source-kling-bg: #5f3a1e;
+  --source-kling-border: #f59e0b;
+  --source-kling-text: #fcd34d;
+
+  --source-deevid-bg: #1e5f3a;
+  --source-deevid-border: #10b981;
+  --source-deevid-text: #6ee7b7;
+
+  --source-runway-bg: #5f1e5f;
+  --source-runway-border: #d946ef;
+  --source-runway-text: #f0abfc;
+
+  --source-image-bg: #2a2a3a;
+  --source-image-border: #6b7280;
+  --source-image-text: #9ca3af;
+
+  /* Section colors */
+  --section-intro: #6b7280;
+  --section-verse: #3b82f6;
+  --section-chorus: #f59e0b;
+  --section-bridge: #8b5cf6;
+  --section-instrumental: #10b981;
+  --section-outro: #6b7280;
+
+  /* Waveform */
+  --waveform: #3b82f680;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-app);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}

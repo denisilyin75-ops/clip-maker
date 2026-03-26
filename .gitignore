@@ -1,20 +1,34 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.egg-info/
-dist/
-build/
-.eggs/
-*.egg
 .venv/
 venv/
-env/
+
+# Storage (user data)
+backend/storage/uploads/*
+backend/storage/projects/*
+backend/storage/thumbnails/*
+backend/storage/exports/*
+!backend/storage/**/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
 .env
-*.mp4
-*.mkv
-*.avi
-*.mov
-*.webm
-!tests/fixtures/*
-.pytest_cache/
-.mypy_cache/
+.env.local
