@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
+from routers.upload import router as upload_router
+
 app = FastAPI(title="ClipMaker AI", version="0.1.0")
 
 app.add_middleware(
@@ -20,6 +22,8 @@ for sub in ["uploads", "projects", "thumbnails", "exports"]:
 app.mount("/api/files/uploads", StaticFiles(directory=storage_dir / "uploads"), name="uploads")
 app.mount("/api/files/thumbnails", StaticFiles(directory=storage_dir / "thumbnails"), name="thumbnails")
 app.mount("/api/files/exports", StaticFiles(directory=storage_dir / "exports"), name="exports")
+
+app.include_router(upload_router)
 
 
 @app.get("/api/health")
